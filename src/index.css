@@ -1,0 +1,217 @@
+/* ===== GLOBAL RESET & PREMIUM DARK LUXURY THEME ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Dark Luxury Color Tokens - HIGH CONTRAST */
+  --bg-primary: #0d0a06;
+  --bg-secondary: #120e08;
+  --bg-tertiary: #1a1208;
+  --gold-primary: #C9A84C;
+  --gold-secondary: #E6C27A;
+  --gold-light: #F5DFA0;
+  --text-primary: #F5E6C8;
+  /* Superior contrast */
+  --text-secondary: #D8D2C5;
+  /* Highly readable secondary */
+  --text-muted: rgba(216, 210, 197, 0.7);
+  /* Removed extreme transparency */
+  --glass-bg: rgba(15, 12, 9, 0.96);
+  /* Solid dark glass, no light grey */
+  --glass-border: #E6C27A;
+  --glass-hover: rgba(25, 20, 15, 0.98);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(230, 194, 122, 0.15);
+
+  /* Typography */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  /* Deep dark luxury base - Reduced background noise */
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(201, 168, 76, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 0% 100%, rgba(120, 80, 20, 0.05) 0%, transparent 40%),
+    linear-gradient(170deg, #151008 0%, #0d0a05 40%, #080603 80%, #050402 100%);
+  position: relative;
+}
+
+/* Subtle dark noise grain texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Warm gold ambient glow overlay - EXTREMELY FAINT */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(201, 168, 76, 0.02) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(150, 100, 20, 0.02) 100%);
+  background-size: 200% 200%;
+  animation: subtleGoldShift 25s ease infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes subtleGoldShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Luxury "1061" watermark - MAXIMUM TRANSPARENCY */
+#root::before {
+  content: '1061';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(200px, 30vw, 400px);
+  font-weight: 700;
+  color: rgba(201, 168, 76, 0.03);
+  /* Extreme faint opacity */
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+a {
+  font-weight: 500;
+  color: var(--gold-secondary);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: var(--gold-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--gold-secondary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+button {
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  /* Increased weight */
+  font-family: inherit;
+  background-color: var(--glass-bg);
+  color: var(--text-primary);
+  min-height: 50px;
+  /* Minimum tappable height */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  border-color: var(--gold-secondary);
+  background-color: var(--glass-hover);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--gold-secondary);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(201, 168, 76, 0.04);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 168, 76, 0.5);
+}
+
+/* ===== AMBIENT PARTICLES CANVAS ===== */
+#ambient-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  /* Drop below content */
+  opacity: 0.25;
+  /* Radically reduced visibility */
+}
