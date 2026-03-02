@@ -86,6 +86,10 @@ const OpeningAnimation = ({ onComplete }) => {
     sequence();
   }, []);
 
+  const handleSkip = () => {
+    setAnimationStep('exit');
+  };
+
   return (
     <AnimatePresence onExitComplete={onComplete}>
       {animationStep !== 'exit' && (
@@ -183,6 +187,17 @@ const OpeningAnimation = ({ onComplete }) => {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* Skip Button */}
+          <motion.button
+            className="skip-welcome-btn"
+            onClick={handleSkip}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+          >
+            Skip Animation
+          </motion.button>
         </motion.div>
       )}
     </AnimatePresence>
