@@ -97,6 +97,8 @@ const OpeningAnimation = ({ onComplete }) => {
           className="luxury-welcome-container"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
+          onClick={handleSkip}
+          style={{ cursor: 'pointer' }}
         >
           {/* Logo in Top-Right Corner */}
           <div className="welcome-logo">
@@ -187,17 +189,6 @@ const OpeningAnimation = ({ onComplete }) => {
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Skip Button */}
-          <motion.button
-            className="skip-welcome-btn"
-            onClick={handleSkip}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-          >
-            Skip Animation
-          </motion.button>
         </motion.div>
       )}
     </AnimatePresence>
